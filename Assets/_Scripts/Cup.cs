@@ -1,30 +1,32 @@
-using Unity.VisualScripting;
 using UnityEngine;
 public class Cup : MonoBehaviour
 {
     Vector3 mousePositionOffset;
+    bool _isDragging  = true;
 
     Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-    private void OnMouseEnter()
-    {
-        if (Player.Instance.GetHoveringCup() == this) return;
-
-        Player.Instance.SetHoveringCup(this);
-    }
-    private void OnMouseExit()
-    {
-        Player.Instance.SetHoveringCup(null);
-    }
-
-    private void OnMouseDown()
+    private void Start()
     {
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
     }
-    private void OnMouseDrag()
+
+    private void Update()
     {
-        transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        if (_isDragging)
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }
+    }
+    private void OnMouseUp()
+    {
+        _isDragging = false;
+        DestroySelf();
+    }
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
