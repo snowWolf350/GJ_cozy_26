@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class BottleDrop : MonoBehaviour
 {
-    [SerializeField] GameObject Cup_Visual;
+    [SerializeField] GameObject _orderTemplate;
+    [SerializeField] GameObject _currentOrder;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("entered collider");
         if (collision.transform.TryGetComponent(out Cup cup))
         {
-            //there is a cup dropped here
-            Instantiate(Cup_Visual,transform.position,Quaternion.identity);
-            cup.DestroySelf();
+            if (_currentOrder == null)
+            {
+                //no order is here
+                _currentOrder = Instantiate(_orderTemplate, transform.position, Quaternion.identity);
+                _currentOrder.GetComponent<Draggable>().DisableDrag();
+            }
+            _currentOrder.GetComponent<Order>().AddIngredients(cup.GetIngredientSO());
+            Destroy(cup.gameObject);
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        //order taken out 
+        Debug.Log("Exited trigger");
     }
 }

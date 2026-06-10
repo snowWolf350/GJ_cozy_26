@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class GlassSpawn : MonoBehaviour
 {
-    [SerializeField] GameObject _Cupr_GO;
+    [SerializeField] IngredientSO ingredientSO;
     private void OnMouseDown()
     {
         //spawn a bottle and give player
-        Instantiate(_Cupr_GO,transform.position,Quaternion.identity);
+        Instantiate(ingredientSO.ingredient_Object,transform.position,Quaternion.identity);
     }
 }

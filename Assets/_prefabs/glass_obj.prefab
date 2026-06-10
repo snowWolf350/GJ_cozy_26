@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6424982014813744053}
   - component: {fileID: 5372405403028990912}
   - component: {fileID: -2985033108649015890}
+  - component: {fileID: 4645513594028273579}
   m_Layer: 0
   m_Name: glass_obj
   m_TagString: Untagged
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68783df5fe52c4c814a2404321e7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cup
+  ingredientSO: {fileID: 11400000, guid: 0ba2eb0624540ba4391f9ad4a75336a3, type: 2}
 --- !u!50 &-2985033108649015890
 Rigidbody2D:
   serializedVersion: 5
@@ -179,3 +181,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4645513594028273579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434920680315611326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33979fb07df157544a65d85a27305aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Draggable
