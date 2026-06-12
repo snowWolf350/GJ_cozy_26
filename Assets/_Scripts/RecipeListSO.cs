@@ -4,5 +4,5 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "RecipeListSO", menuName = "Scriptable Objects/RecipeListSO")]
 public class RecipeListSO : ScriptableObject
 {
-    List<RecipesSO> _recipeList;
+    public List<RecipesSO> _recipeList;
 }
