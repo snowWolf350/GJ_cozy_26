@@ -15,9 +15,12 @@ public class BottleDrop : MonoBehaviour
                 _currentOrder = Instantiate(_orderTemplate, transform.position, Quaternion.identity);
                 _currentOrder.GetComponent<Draggable>().DisableDrag();
             }
-            _currentOrder.GetComponent<Order>().AddIngredients(cup.GetIngredientSO());
-            Destroy(cup.gameObject);
+            
+            if(_currentOrder.GetComponent<Order>().TryaddIngredients(cup.GetIngredientSO()))
+            {
 
+            }
+            Destroy(cup.gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
