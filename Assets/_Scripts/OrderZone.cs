@@ -40,6 +40,36 @@ public class OrderZone : MonoBehaviour
         if (collision.transform.TryGetComponent(out Order order))
         {
             //order has been delivered here
+            foreach (RecipesSO recipesSO in _currentOrderList)
+            {
+                bool correctOrder = true ;
+                // 1 recipe from the ones we want
+                if (!correctOrder)
+                {
+                    continue;
+                }
+                foreach (IngredientSO ingredientso in recipesSO._recipe)
+                {
+                    //1 ingredient that we want
+                    //cycle throught the player's order to find this element
+                    if (!correctOrder) break;
+                    for (int i = 0; i < order.GetIngredientList().Count; i++)
+                    {
+                        if (order.OrderContains(ingredientso))
+                        {
+                            //order contains the needed ingredient
+                            correctOrder = true;
+                            break;
+                        }
+                        else
+                        {
+                            //order doesnt have the needed ingredient for this recipe
+                            correctOrder = false;
+                            break;
+                        }
+                    }
+                }
+            }
 
             //cycle through recipes 
             //if one doesnt match break
