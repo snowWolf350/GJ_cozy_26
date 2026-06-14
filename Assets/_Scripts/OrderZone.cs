@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 public class OrderZone : MonoBehaviour
 {
     //recipeSO list
@@ -44,10 +45,6 @@ public class OrderZone : MonoBehaviour
             {
                 bool correctOrder = true ;
                 // 1 recipe from the ones we want
-                if (!correctOrder)
-                {
-                    continue;
-                }
                 foreach (IngredientSO ingredientso in recipesSO._recipe)
                 {
                     //1 ingredient that we want
@@ -61,16 +58,20 @@ public class OrderZone : MonoBehaviour
                             correctOrder = true;
                             break;
                         }
-                        else
-                        {
-                            //order doesnt have the needed ingredient for this recipe
-                            correctOrder = false;
-                            break;
-                        }
+                        correctOrder = false;
                     }
+                }
+                if(correctOrder == true)
+                {
+                    Debug.Log("Correct delivery");
+                }
+                else
+                {
+                    Debug.Log("Wrong Delivery");
                 }
             }
 
+            Destroy(order.gameObject);
             //cycle through recipes 
             //if one doesnt match break
             //if all match delivered 
