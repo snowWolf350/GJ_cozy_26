@@ -1,5 +1,5 @@
 using UnityEngine;
-public class Cup : MonoBehaviour
+public class Ingredient : MonoBehaviour
 {
     [SerializeField] IngredientSO ingredientSO;
     
