@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GlassSpawn : MonoBehaviour
+public class IngredientSpawn : MonoBehaviour
 {
     [SerializeField] IngredientSO ingredientSO;
     private void OnMouseDown()
