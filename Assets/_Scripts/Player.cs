@@ -4,30 +4,30 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    Cup _hoveringCup;
-    Cup _draggingCup;
+    Ingredient _hoveringCup;
+    Ingredient _draggingCup;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public Cup GetHoveringCup()
+    public Ingredient GetHoveringCup()
     {
         return _hoveringCup;
     }
-    public void SetHoveringCup(Cup cupToSet)
+    public void SetHoveringCup(Ingredient cupToSet)
     {
         _hoveringCup = cupToSet;
     }
 
-    public void SetDraggingCup(Cup cupToSet)
+    public void SetDraggingCup(Ingredient cupToSet)
     {
         _draggingCup = cupToSet;
     }
 
 
-    public Cup GetDraggingCup()
+    public Ingredient GetDraggingCup()
     {
         return _draggingCup;
     }

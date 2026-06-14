@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 public class OrderZone : MonoBehaviour
 {
     //recipeSO list
@@ -40,7 +41,37 @@ public class OrderZone : MonoBehaviour
         if (collision.transform.TryGetComponent(out Order order))
         {
             //order has been delivered here
+            foreach (RecipesSO recipesSO in _currentOrderList)
+            {
+                bool correctOrder = true ;
+                // 1 recipe from the ones we want
+                foreach (IngredientSO ingredientso in recipesSO._recipe)
+                {
+                    //1 ingredient that we want
+                    //cycle throught the player's order to find this element
+                    if (!correctOrder) break;
+                    for (int i = 0; i < order.GetIngredientList().Count; i++)
+                    {
+                        if (order.OrderContains(ingredientso))
+                        {
+                            //order contains the needed ingredient
+                            correctOrder = true;
+                            break;
+                        }
+                        correctOrder = false;
+                    }
+                }
+                if(correctOrder == true)
+                {
+                    Debug.Log("Correct delivery");
+                }
+                else
+                {
+                    Debug.Log("Wrong Delivery");
+                }
+            }
 
+            Destroy(order.gameObject);
             //cycle through recipes 
             //if one doesnt match break
             //if all match delivered 

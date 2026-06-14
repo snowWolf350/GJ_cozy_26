@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4777785585758732947}
   - component: {fileID: 6426204791772539830}
   - component: {fileID: 6424982014813744053}
-  - component: {fileID: 5372405403028990912}
   - component: {fileID: -2985033108649015890}
   - component: {fileID: 4645513594028273579}
+  - component: {fileID: 2794580871159791362}
   m_Layer: 0
   m_Name: glass_obj
   m_TagString: Untagged
@@ -141,19 +141,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7, y: 1.74}
   m_EdgeRadius: 0
---- !u!114 &5372405403028990912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3434920680315611326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae68783df5fe52c4c814a2404321e7de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cup
-  ingredientSO: {fileID: 11400000, guid: 0ba2eb0624540ba4391f9ad4a75336a3, type: 2}
 --- !u!50 &-2985033108649015890
 Rigidbody2D:
   serializedVersion: 5
@@ -193,3 +180,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33979fb07df157544a65d85a27305aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
+--- !u!114 &2794580871159791362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434920680315611326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf824a832610ec3488f777f237f87b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ingredient
+  ingredientSO: {fileID: 11400000, guid: 0ba2eb0624540ba4391f9ad4a75336a3, type: 2}
